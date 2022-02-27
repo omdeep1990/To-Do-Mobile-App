@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/drawable/button_rounded.xml" value="0.1085" />
+        <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/drawable/custom_input.xml" value="0.1085" />
         <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/drawable/ic_add.xml" value="0.1" />
         <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/drawable/ic_empty.xml" value="0.1" />
+        <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/drawable/list_view_design.xml" value="0.1085" />
         <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/layout/activity_dialog_box.xml" value="0.25" />
-        <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/layout/activity_main.xml" value="0.23259493670886075" />
         <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/layout/custom_profile_item.xml" value="0.18" />
         <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/layout/ic_add.xml" value="0.2" />
         <entry key="..\:/Education/Android Studio Chetu/ToDoMobileApplication/app/src/main/res/layout/ic_empty.xml" value="0.2" />

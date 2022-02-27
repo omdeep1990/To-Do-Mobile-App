@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 avengersData.setRowId(cursor.getString(0));
                 avengersData.setTitle(cursor.getString(1));
                 avengersData.setMessage(cursor.getString(2));
+//                avengersData.setDateTime(cursor.getString(3));
                 avengersDataList.add(avengersData);
             } while (cursor.moveToNext());
         }

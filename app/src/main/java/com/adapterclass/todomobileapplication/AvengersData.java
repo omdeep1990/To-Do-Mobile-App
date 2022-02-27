@@ -4,6 +4,7 @@ public class AvengersData {
     private String rowId;
     private  String title;
     private String message;
+    private String dateTime;
 
     public String getRowId() {
         return rowId; }
@@ -22,4 +23,12 @@ public class AvengersData {
     public void setMessage(String message){
         this.message = message;
     }
+
+//    public  String getDateTime() {
+//        return dateTime;
+//    }
+//    public void setDateTime(String dateTime) {
+//        this.dateTime = dateTime;
+//    }
+
 }

@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
+import com.google.type.DateTime;
+
 public class DatabaseAdapter {
     private final String DB_NAME = "Avengers";
     private final String TABLE_NAME = "Notes";
@@ -16,6 +18,8 @@ public class DatabaseAdapter {
     private final String ROW_ID = "rowId";
     private final String TITLE = "title";
     private final String MESSAGE = "message";
+//    private final String DATETIME = "dateTime";
+
 
     //TODO: CREATE TABLE Notes (rowId Integer AUTOINCREAMENT PRIMARY KEY, title text, message text);
 
@@ -37,6 +41,7 @@ public class DatabaseAdapter {
         ContentValues contentValues = new ContentValues();
         contentValues.put(TITLE, title);
         contentValues.put(MESSAGE, message);
+//        contentValues.put(DATETIME, dateTime);
         long insertedRow = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         if (insertedRow > 0){
             showLongToast(context, insertedRow+" data is successfully inserted");
@@ -55,7 +60,7 @@ public class DatabaseAdapter {
     }
 
     public void deleteSingleRecord(Context context, String rowId){
-        // DELETE * FROM STUDENT Where RowDI = 101;
+        //TODO: DELETE * FROM STUDENT Where RowDI = 101;
         int deletedItems = sqLiteDatabase.delete(TABLE_NAME, ROW_ID+" = "+rowId, null);
         if (deletedItems > 0 ){
             showLongToast(context, deletedItems+" Record deleted");

@@ -8,10 +8,18 @@
     android:layout_height="match_parent"
     tools:context=".DialogBox">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="40dp"
+        app:cardBackgroundColor="@color/light_orange"
+        app:cardCornerRadius="50dp">
+
+
     <TextView
         android:id="@+id/Get_Date"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="280dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="240dp"
         android:layout_below="@+id/text_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,8 +30,8 @@
 
     <TextView
         android:id="@+id/Get_Time"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="280dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="240dp"
         android:layout_below="@+id/Get_Date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,19 +42,27 @@
 
     <TextView
         android:id="@+id/text_detail"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="22dp"
         android:textStyle="bold"
         android:text="Enter Your Details"/>
 
+
+
     <EditText
         android:id="@+id/edit_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your Title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="80dp"
+        android:padding="10dp"
+        android:background="@drawable/custom_input"
         android:layout_below="@+id/text_detail"
         android:textColor="@color/black"
         android:textSize="22dp"
@@ -57,10 +73,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your Message"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="140dp"
+        android:padding="10dp"
+        android:background="@drawable/custom_input"
         android:layout_below="@+id/edit_title"
         android:textColor="@color/black"
         android:textSize="22dp"
         android:textStyle="bold"/>
+
 
 <!--    <ImageButton-->
 <!--        android:id="@+id/id_save"-->
@@ -77,30 +99,34 @@
 <!--        android:layout_below="@+id/edit_message"-->
 <!--        android:layout_marginLeft="30dp"-->
 <!--        android:src="@drawable/ic_delete"/>-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
-
-        <Button
-            android:id="@+id/button_cancel"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_message"
-            android:layout_marginTop="160dp"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:text="Cancel" />
+            android:padding="15dp">
 
-        <Button
-            android:id="@+id/button_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edit_message"
-            android:layout_marginTop="160dp"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:text="Save" />
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_message"
+                android:layout_marginTop="190dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_rounded"
+                android:padding="10dp"
+                android:text="Cancel" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edit_message"
+                android:layout_marginTop="190dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_rounded"
+                android:padding="10dp"
+                android:text="Save" />
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </RelativeLayout>
