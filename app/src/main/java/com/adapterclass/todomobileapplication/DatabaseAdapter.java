@@ -69,17 +69,43 @@ public class DatabaseAdapter {
         }
     }
 
-    public void updateRecord(Context context, String title, String message, String rowId, String dateTime){
+//    public void updateRecord(Context context, String title, String message, String rowId, String dateTime){
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(TITLE, title);
+//        contentValues.put(MESSAGE, message);
+//        contentValues.put(DATETIME, dateTime);
+//        int updatedRow = sqLiteDatabase.update(TABLE_NAME, contentValues, ROW_ID+" = "+rowId, null);
+//        if (updatedRow > 0){
+//            showLongToast(context, updatedRow+" data is successfully updated");
+//        }else {
+//            showLongToast(context, "Something went wrong");
+//        }
+//    }
+
+
+
+
+
+
+    public void updateRecord(Context context, String title, String message, String dateTime, String rowId){
         ContentValues contentValues = new ContentValues();
         contentValues.put(TITLE, title);
         contentValues.put(MESSAGE, message);
+        contentValues.put(DATETIME, dateTime);
         int updatedRow = sqLiteDatabase.update(TABLE_NAME, contentValues, ROW_ID+" = "+rowId, null);
         if (updatedRow > 0){
-            showLongToast(context, updatedRow+" data is successfully updated");
+            Toast.makeText(context, updatedRow+" data is successfully updated", Toast.LENGTH_SHORT).show();
         }else {
-            showLongToast(context, "Something went wrong");
+            Toast.makeText(context, updatedRow+" Something  Went Wrong", Toast.LENGTH_SHORT).show();
+
         }
     }
+
+
+
+
+
+
 
     public void deleteAllRecords(Context context){
         int deletedItems = sqLiteDatabase.delete(TABLE_NAME, null, null);

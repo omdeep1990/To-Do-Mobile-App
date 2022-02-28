@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ActivityMainBinding binding;
     ActivityDialogBoxBinding profileBinding, profileBindingUpdate;
     public DatabaseAdapter adapter;
-//    SimpleDateFormat simpleDateFormat;
-//    Calendar calender;
-//    String DateTime;
     private Cursor cursor;
     Dialog dialog;
     private int clickedPosition;
@@ -45,11 +42,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-//        calender = Calendar.getInstance();
-//        simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-//        simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-//        String DateTime = simpleDateFormat.format(calender.getTime());
 
 
         adapter = new DatabaseAdapter(this);
@@ -144,10 +136,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         profileBinding.buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //profileBinding.GetDate.setText(DateTime);
-                adapter.insertData(MainActivity.this, profileBinding.editTitle.getText().toString(), profileBinding.editMessage.getText().toString(), getDateTime());
-                dialog.dismiss();
-                loadDataInListview();
+                if (profileBinding.editTitle==null) {
+                    Toast.makeText(getApplicationContext(), "Please enter your title", Toast.LENGTH_SHORT);
+                    return;
+                }if(profileBinding.editMessage==null) {
+                    Toast.makeText(getApplicationContext(), "Please enter your message", Toast.LENGTH_SHORT);
+                    return;
+                }else {
+                    adapter.insertData(MainActivity.this, profileBinding.editTitle.getText().toString(), profileBinding.editMessage.getText().toString(), getDateTime());
+                    dialog.dismiss();
+                    loadDataInListview();
+                }
+
             }
         });
 
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 profileBindingUpdate = ActivityDialogBoxBinding.inflate(getLayoutInflater());
                 Dialog dialog = new Dialog(this);
                 dialog.setContentView(profileBindingUpdate.getRoot());
-                profileBindingUpdate.buttonSave.setText("Update Profile");
+                profileBindingUpdate.buttonSave.setText("Update");
                 dialog.setCancelable(false);
                 dialog.show();
                 Window window = dialog.getWindow();
@@ -190,27 +190,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 profileBindingUpdate.editTitle.setText(cursor.getString(1));
                 profileBindingUpdate.editMessage.setText(cursor.getString(2));
 
+
                 profileBindingUpdate.buttonSave.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (profileBinding.editTitle==null) {
-                            Toast.makeText(getApplicationContext(), "Please enter your title", Toast.LENGTH_SHORT);
-                            return;
-                        }if(profileBinding.editMessage==null) {
-                            Toast.makeText(getApplicationContext(), "Please enter your message", Toast.LENGTH_SHORT);
-                            return;
-                        }else {
-                            adapter.updateRecord(MainActivity.this, profileBindingUpdate.editTitle.getText().toString(), profileBindingUpdate.editMessage.getText().toString(), getDateTime(), cursor.getString(0));
-                            dialog.dismiss();
-                            loadDataInListview();
+                        adapter.updateRecord(MainActivity.this, profileBindingUpdate.editTitle.getText().toString(),
+                                profileBindingUpdate.editMessage.getText().toString(),
+                                getDateTime(), cursor.getString(0));
+                        dialog.dismiss();
 
-                        }
-
-
+                        loadDataInListview();
                     }
                 });
 
 
+
+
+
+                profileBinding.buttonCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                break;
         }
         return super.onContextItemSelected(item);
     }
