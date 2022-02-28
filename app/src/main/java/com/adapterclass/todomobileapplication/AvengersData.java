@@ -24,11 +24,11 @@ public class AvengersData {
         this.message = message;
     }
 
-//    public  String getDateTime() {
-//        return dateTime;
-//    }
-//    public void setDateTime(String dateTime) {
-//        this.dateTime = dateTime;
-//    }
+    public  String getDateTime() {
+        return dateTime;
+    }
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
+    }
 
 }

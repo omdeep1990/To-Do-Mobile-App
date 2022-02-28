@@ -18,12 +18,12 @@ public class DatabaseAdapter {
     private final String ROW_ID = "rowId";
     private final String TITLE = "title";
     private final String MESSAGE = "message";
-//    private final String DATETIME = "dateTime";
+    private final String DATETIME = "dateTime";
 
 
     //TODO: CREATE TABLE Notes (rowId Integer AUTOINCREAMENT PRIMARY KEY, title text, message text);
 
-    private String sqlQuery = "CREATE TABLE "+TABLE_NAME+" ("+ROW_ID+" "+"INTEGER PRIMARY KEY AUTOINCREMENT"+", "+TITLE+" text"+", "+MESSAGE+" text"+")";
+    private String sqlQuery = "CREATE TABLE "+TABLE_NAME+" ("+ROW_ID+" "+"INTEGER PRIMARY KEY AUTOINCREMENT"+", "+TITLE+" text"+", "+MESSAGE+" text"+", "+DATETIME+")";
 
     MyDbHelper myDbHelper;
     SQLiteDatabase sqLiteDatabase;
@@ -37,11 +37,11 @@ public class DatabaseAdapter {
         return this;
     }
 
-    public  void insertData(Context context, String title, String message){
+    public  void insertData(Context context, String title, String message, String dateTime){
         ContentValues contentValues = new ContentValues();
         contentValues.put(TITLE, title);
         contentValues.put(MESSAGE, message);
-//        contentValues.put(DATETIME, dateTime);
+        contentValues.put(DATETIME, dateTime);
         long insertedRow = sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         if (insertedRow > 0){
             showLongToast(context, insertedRow+" data is successfully inserted");
@@ -55,7 +55,7 @@ public class DatabaseAdapter {
     }
 
     public Cursor getAllData(){
-        String[] colList = new String[]{ROW_ID, TITLE, MESSAGE};
+        String[] colList = new String[]{ROW_ID, TITLE, MESSAGE, DATETIME};
         return sqLiteDatabase.query(TABLE_NAME, colList, null, null, null, null, null);
     }
 
@@ -69,7 +69,7 @@ public class DatabaseAdapter {
         }
     }
 
-    public void updateRecord(Context context, String title, String message, String rowId){
+    public void updateRecord(Context context, String title, String message, String rowId, String dateTime){
         ContentValues contentValues = new ContentValues();
         contentValues.put(TITLE, title);
         contentValues.put(MESSAGE, message);

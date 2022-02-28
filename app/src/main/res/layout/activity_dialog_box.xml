@@ -17,30 +17,6 @@
 
 
     <TextView
-        android:id="@+id/Get_Date"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="240dp"
-        android:layout_below="@+id/text_detail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="italic"
-        android:text="Date: "/>
-
-    <TextView
-        android:id="@+id/Get_Time"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="240dp"
-        android:layout_below="@+id/Get_Date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="italic"
-        android:text="Time: "/>
-
-    <TextView
         android:id="@+id/text_detail"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"

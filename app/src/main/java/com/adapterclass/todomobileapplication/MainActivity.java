@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener {
     private ActivityMainBinding binding;
@@ -90,7 +91,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 profileBinding.buttonSave.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        adapter.insertData(MainActivity.this, profileBinding.editTitle.getText().toString(), profileBinding.editMessage.getText().toString());
+                        adapter.insertData(MainActivity.this, profileBinding.editTitle.getText().toString(),
+                                profileBinding.editMessage.getText().toString(),getDateTime());
                         dialog.dismiss();
                         loadDataInListview();
                     }
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 avengersData.setRowId(cursor.getString(0));
                 avengersData.setTitle(cursor.getString(1));
                 avengersData.setMessage(cursor.getString(2));
-//                avengersData.setDateTime(cursor.getString(3));
+                avengersData.setDateTime(cursor.getString(3));
                 avengersDataList.add(avengersData);
             } while (cursor.moveToNext());
         }
@@ -143,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 //profileBinding.GetDate.setText(DateTime);
-                adapter.insertData(MainActivity.this, profileBinding.editTitle.getText().toString(), profileBinding.editMessage.getText().toString());
+                adapter.insertData(MainActivity.this, profileBinding.editTitle.getText().toString(), profileBinding.editMessage.getText().toString(), getDateTime());
                 dialog.dismiss();
                 loadDataInListview();
             }
@@ -198,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             Toast.makeText(getApplicationContext(), "Please enter your message", Toast.LENGTH_SHORT);
                             return;
                         }else {
-                            adapter.updateRecord(MainActivity.this, profileBindingUpdate.editTitle.getText().toString(), profileBindingUpdate.editMessage.getText().toString(), cursor.getString(0));
+                            adapter.updateRecord(MainActivity.this, profileBindingUpdate.editTitle.getText().toString(), profileBindingUpdate.editMessage.getText().toString(), getDateTime(), cursor.getString(0));
                             dialog.dismiss();
                             loadDataInListview();
 
@@ -217,5 +219,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
         clickedPosition = position;
         return false;
+    }
+
+    public  String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }
